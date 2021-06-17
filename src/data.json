@@ -1,0 +1,53 @@
+{
+    "products": [
+        {
+            "_id":"pizza1",
+            "tittle":"Pizza 1",
+            "image": "/images/pizza1.png",
+            "description": "Pizza de Pepperoni",
+            "availableSizes": ["M","F"],
+            "price": 7
+        },
+        {
+            "_id":"pizza2",
+            "tittle":"Pizza 2",
+            "image": "/images/pizza2.png",
+            "description": "Pizza mediterránea",
+            "availableSizes": ["M","F"],
+            "price": 7
+        },
+        {
+            "_id":"pizza3",
+            "tittle":"Pizza 3",
+            "image": "/images/pizza3.png",
+            "description": "Pizza Vegetariana",
+            "availableSizes": ["M","F"],
+            "price": 7
+        },
+        {
+            "_id":"pizza4",
+            "tittle":"Pizza 4",
+            "image": "/images/pizza4.png",
+            "description": "Pizza Picante",
+            "availableSizes": ["M","F"],
+            "price": 7
+        },
+        {
+            "_id":"pizza5",
+            "tittle":"Pizza 5",
+            "image": "/images/pizza5.png",
+            "description": "Pizza New York",
+            "availableSizes": ["M","F"],
+            "price": 7
+        },
+        {
+            "_id":"pizza6",
+            "tittle":"Pizza 6",
+            "image": "/images/pizza6.png",
+            "description": "Pizza Continental",
+            "availableSizes": ["M","F"],
+            "price": 7
+        }
+    ]
+
+}
