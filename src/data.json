@@ -5,8 +5,8 @@
             "tittle":"Pizza 1",
             "image": "/images/pizza1.png",
             "description": "Pizza de Pepperoni",
-            "availableSizes": ["M","F"],
-            "price": 7
+            "availableSizes": ["P","M","F"],
+            "price": 4
         },
         {
             "_id":"pizza2",
