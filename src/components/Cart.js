@@ -42,7 +42,7 @@ export default class Cart extends Component {
                                             <img src={item.image} alt={item.tittle}></img>
                                         </div>
                                         <div>
-                                            <div>{item.description}</div>
+                                            <div>{item.tittle}</div>
                                             
                                             <div className="right">
                                                 {formatCurrency(item.price)} x { item.count } {" "}
