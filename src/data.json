@@ -2,50 +2,50 @@
     "products": [
         {
             "_id":"pizza1",
-            "tittle":"Pizza 1",
+            "tittle":"Pizza Pepperoni",
             "image": "/images/pizza1.png",
-            "description": "Pizza de Pepperoni",
+            "description": "Disfruta de la especialidad de la casa, con tomate fresco, extra de queso mozzarella, y doble de pepperoni casero, sazonado con orégano",
             "availableSizes": ["P","M","F"],
-            "price": 4
+            "price": 6
         },
         {
             "_id":"pizza2",
-            "tittle":"Pizza 2",
+            "tittle":"Pizza Mediterránea",
             "image": "/images/pizza2.png",
-            "description": "Pizza mediterránea",
+            "description": "La pizza más fresca y natural, conserva todo el sabor y aroma de las verduras más frescas de la tierra cocidas a la brasa. Está elaborada con trozos de calabacín, pimiento rojo y cebolla asados, acompañados de champiñones y olivas de nuestra huerta.",
             "availableSizes": ["M","F"],
-            "price": 7
+            "price": 7.5
         },
         {
             "_id":"pizza3",
-            "tittle":"Pizza 3",
+            "tittle":"Pizza Vegetariana",
             "image": "/images/pizza3.png",
-            "description": "Pizza Vegetariana",
+            "description": "Para aquellos que disfrutan de la comida más natural, nuestra pizza vegetariana sólo incluirá nuestras verduras más frescas. Contiene salsa de tomate natural, queso mozzarella, tomate RAF y rúcula.",
             "availableSizes": ["M","F"],
             "price": 7
         },
         {
             "_id":"pizza4",
-            "tittle":"Pizza 4",
+            "tittle":"Pizza Picante",
             "image": "/images/pizza4.png",
-            "description": "Pizza Picante",
-            "availableSizes": ["M","F"],
-            "price": 7
+            "description": "Pizza especialmente preparada para los más atrevidos. Aventúrate a probar nuestra pizza más retante, elaborada con salsa de tomate natural, queso mozzarella, salchichas frankfurt repartidas en forma de finas rodajas, orégano, y nuestra más temida selección guindillas, hecha a base de chile jalapeño y pimiento de padrón.",
+            "availableSizes": ["M"],
+            "price": 8
         },
         {
             "_id":"pizza5",
-            "tittle":"Pizza 5",
+            "tittle":"Pizza New York",
             "image": "/images/pizza5.png",
-            "description": "Pizza New York",
+            "description": "Prueba uno de nuestros sabores más atrevidos. Compuesta de salsa de tomate natural, queso mozzarella, finas tiras de pimiento rojo, olivas, el mejor salchichón y una capa de queso rallado por encima, nuestra pizza mejor valorada te dejará con ganas de más",
             "availableSizes": ["M","F"],
-            "price": 7
+            "price": 6.50
         },
         {
             "_id":"pizza6",
-            "tittle":"Pizza 6",
+            "tittle":"Pizza Continental",
             "image": "/images/pizza6.png",
-            "description": "Pizza Continental",
-            "availableSizes": ["M","F"],
+            "description": "Atrévete con el sabor más europeo. Con su combinación de salsa de tomate natural, queso mozzarella, una combinación de finas tiras de pimiento rojo y verde, champiñones y salami, ésta pizza no te dejará indiferente",
+            "availableSizes": ["P","M"],
             "price": 7
         }
     ]
