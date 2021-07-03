@@ -1,28 +1,41 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { filterProducts, sortProducts } from "../actions/productActions";
 
-export default class filter extends Component {
+class Filter extends Component {
     render() {
-        return (
+        return !this.props.filteredProducts ? (
+            <div>Cargando...</div> ) : (
             <div className="filter">
-                <div className="filter-result">{this.props.count} Productos</div>
+                <div className="filter-result">{this.props.filteredProducts.length} Productos</div>
                 <div className="filter-sort"> 
-                Orden{" "}
-                    <select value={this.props.sort} onChange={this.props.sortProducts}> 
-                        <option>Novedades</option>
+                    Orden{" "}
+                    <select value={this.props.sort} onChange={(e) => this.props.sortProducts(this.props.filteredProducts, e.target.value)} /* e.target.value es el valor selecccionado, this.props.filteredProducts, valor de la función coonect de abajo */ > 
+                        <option value="latest">Novedades</option>
                         <option value="lowest">Precio (asc)</option>
                         <option value="highest">Precio (desc)</option>
                     </select>
-                </div>
+                </div> 
                 <div className="filter-size">
-                    Filtrar{" "}
-                    <select value={this.props.size} onChange={this.props.filterProducts}>
-                        <option value="">TODOS</option>
-                        <option value="P">Pequeña</option>
-                        <option value="M">Mediana</option>
-                        <option value="F">Grande</option>
+                    Masa{" "}
+                    <select value={this.props.size} onChange={(e) => this.props.filterProducts(this.props.products, e.target.value)}>
+                        <option value="">TODAS</option>
+                        <option value="P">Finissima</option>
+                        <option value="M">Original</option>
+                        <option value="F">Gruesa</option>
                     </select>
                 </div>
             </div>
-        )
+        
+        );
     }
 }
+export default  connect((state) => ({
+    size: state.products.size,
+    sort:state.products.sort,
+    products: state.products.items,
+    filteredProducts: state.products.filteredItems,
+}),{
+    filterProducts,
+    sortProducts,
+})(Filter);
