@@ -85,7 +85,7 @@ footer{
 .products li{
   flex: 0 1 29rem;
   height: 20rem;
-  padding: 1rem;
+  padding: 3rem;
 }
 
 .product{
