@@ -1,5 +1,5 @@
 import React from "react";
-import data from "./data.json";
+//import data from "./data.json";
 import Products from "./components/Products";
 import Filter from "./components/Filter";
 import Cart from "./components/Cart";
@@ -10,10 +10,10 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      products: data.products,
+      //products: data.products,
       cartItems: localStorage.getItem("cartItems")? JSON.parse(localStorage.getItem("cartItems")):[],
-      size:"",
-      sort:"",
+      //size:"",
+      //sort:"",
     };
   }
 
@@ -50,8 +50,8 @@ class App extends React.Component {
 
   };
 
-  sortProducts = (event) => {
-    // impl
+  //Función ORDENAR (desde React, previa a la incorporación del Backend)
+  /*sortProducts = (event) => {
     const sort = event.target.value;
     console.log(event.target.value);
     this.setState((state)=> ({
@@ -66,11 +66,11 @@ class App extends React.Component {
               a._id < b._id? 1:-1
       ),
     }));
-  };
+  }; */
 
-  filterProducts = (event) => {
-    //impl
-    console.log(event.target.value); //Comentar logs en memoria
+  //Función FILTRAR (Previa a la incorporación del Backend)
+  /*filterProducts = (event) => {
+    console.log(event.target.value); //Log visible en herramientas para desarrolladores (Chrome)
     if(event.target.value === ""){
       this.setState({size: event.target.value, products: data.products});
     } else {
@@ -79,7 +79,7 @@ class App extends React.Component {
         products: data.products.filter((product)=> product.availableSizes.indexOf(event.target.value)>=0),
       });
     } 
-  };
+  }; */
 
   render(){
     return (
@@ -92,13 +92,15 @@ class App extends React.Component {
             <div className="content">
               <div className="main">
                 <Filter 
-                  count={this.state.products.length}
-                  size={this.state.size}
-                  sort={this.state.sort}
-                  filterProducts={this.filterProducts}
-                  sortProducts={this.sortProducts}
+                  //count={this.state.products.length}
+                  //size={this.state.size}
+                  //sort={this.state.sort}
+                  //filterProducts={this.filterProducts}
+                  //sortProducts={this.sortProducts}
                 ></Filter>
-                <Products products={this.state.products} addToCart={this.addToCart}></Products>
+                <Products //products={this.state.products} 
+                  addToCart={this.addToCart}>
+                </Products>
               </div>
               <div className="sidebar">
                 <Cart cartItems={this.state.cartItems} removeFromCart={this.removeFromCart} createOrder={this.createOrder} />
