@@ -3,14 +3,17 @@ import formatCurrency from "../util";
 import Fade from "react-reveal/Fade";
 import { connect } from 'react-redux';
 import { removeFromCart } from "../actions/cartActions";
+import { createOrder, clearOrder } from "../actions/orderActions";
+import Modal from "react-modal";
+import Zoom from "react-reveal/Zoom";
 
 class Cart extends Component {
     constructor(props){
         super(props);
-        this.state = { name:"", email:"", address: "", showCheckout: false };
+        this.state = { name:"", email:"", address: "", showCheckout: false, };
     }
     handleInput = (e) => {
-        this.setState({[e.target.name]: e.target.value})
+        this.setState({[e.target.name]: e.target.value});
     };
     createOrder = (e) => {
         e.preventDefault();
@@ -18,12 +21,16 @@ class Cart extends Component {
             name: this.state.name,
             email: this.state.email,
             address: this.state.address,
-            cartItems: this.props.cartItems
+            cartItems: this.props.cartItems,
+            total: this.props.cartItems.reduce((a,c)=> a + c.price*c.count, 0),     //Calculamos precio total
         };
         this.props.createOrder(order);
+    };
+    closeModal = () => {
+        this.props.clearOrder();
     }
     render() {
-        const { cartItems } = this.props;
+        const { cartItems, order } = this.props;
         return (
             <div>
                 {cartItems.length === 0 ? (
@@ -32,6 +39,49 @@ class Cart extends Component {
                     <div className="cart cart-header">
                         Hay {cartItems.length} elementos en el carro{" "}
                     </div>
+                )}
+
+                { order && (
+                    <Modal isOpen={true} onRequestClose={this.closeModal}>
+                        <Zoom>
+                            <button className="close-modal" onClick={this.closeModal}>x</button>
+                            <div className="order-details">
+                                <h3 className="success-message">Tu pedido ha sido realizado con éxito</h3>
+                                <h2>Pedido {order._id}</h2>
+                                <ul>
+                                    <li>
+                                        <div>Nombre:</div>
+                                        <div>{order.name}</div>
+                                    </li>
+                                    <li>
+                                        <div>Email:</div>
+                                        <div>{order.email}</div>
+                                    </li>
+                                    <li>
+                                        <div>Dirección:</div>
+                                        <div>{order.address}</div>
+                                    </li>
+                                    <li>
+                                        <div>Fecha:</div>
+                                        <div>{order.createdAt}</div>
+                                    </li>
+                                    <li>
+                                        <div>Total:</div>
+                                        <div>{formatCurrency(order.total)}</div>
+                                    </li>
+                                    <li>
+                                        <div>Compra:</div>
+                                        <div>
+                                            {order.cartItems.map((x) => (
+                                            <div>
+                                                {x.count} {" x "} {x.tittle}
+                                            </div>
+                                        ))}</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </Zoom>
+                    </Modal>
                 )}
 
                 <div>
@@ -111,8 +161,8 @@ class Cart extends Component {
 
 export default connect(
     (state) => ({
-        //order: state.order.order,
+        order: state.order.order,
         cartItems: state.cart.cartItems,
     }),
-    { removeFromCart } //, createOrder, clearOrder }
+    { removeFromCart, createOrder, clearOrder }
 )(Cart);
