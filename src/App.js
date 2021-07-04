@@ -1,10 +1,10 @@
 import React from "react";
 //import data from "./data.json";
-import Products from "./components/Products";
-import Filter from "./components/Filter";
-import Cart from "./components/Cart";
 import store from "./store";
 import { Provider } from "react-redux";
+import {BrowserRouter, Route, Link} from "react-router-dom";
+import HomeScreen from "./screens/HomeScreen";
+import AdminScreen from "./screens/AdminScreen";
 
 
 //Evadimos la lógica de App.js, simplificando el código de la clase, haciéndola sencilla y breve. 
@@ -17,11 +17,11 @@ class App extends React.Component {
       //size:"",
       //sort:"",
     };
-  }*/
+  }
 
   /*createOrder = (order) => {
     alert("Necesitas guardar el pedido para " + order.name);
-  }*/
+  }
     
 
   /*removeFromCart = (product) => {
@@ -30,7 +30,7 @@ class App extends React.Component {
       cartItems: cartItems.filter((x) => x._id !== product._id),
     });
     localStorage.setItem("cartItems", JSON.stringify(cartItems.filter((x) => x._id !== product._id)));
-  };*/
+  };
 
   /*addToCart = (product) => {
     const cartItems = this.state.cartItems.slice();
@@ -50,7 +50,7 @@ class App extends React.Component {
 
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
-  }; */
+  }; 
 
   //Función ORDENAR (desde React, previa a la incorporación del Backend)
   /*sortProducts = (event) => {
@@ -68,7 +68,7 @@ class App extends React.Component {
               a._id < b._id? 1:-1
       ),
     }));
-  }; */
+  }; 
 
   //Función FILTRAR (Previa a la incorporación del Backend)
   /*filterProducts = (event) => {
@@ -86,32 +86,22 @@ class App extends React.Component {
   render(){
     return (
       <Provider store={store}>
-        <div className="grid-container">
-          <header>
-            <a href="/">Prosciutto</a>
-          </header>
-          <main>
-            <div className="content">
-              <div className="main">
-                <Filter 
-                  //count={this.state.products.length}
-                  //size={this.state.size}
-                  //sort={this.state.sort}
-                  //filterProducts={this.filterProducts}
-                  //sortProducts={this.sortProducts}
-                ></Filter>
-                <Products /* products={this.state.products} addToCart={this.addToCart}*/ >
-                </Products>
-              </div>
-              <div className="sidebar">
-                <Cart /*cartItems={this.state.cartItems} removeFromCart={this.removeFromCart} createOrder={this.createOrder}*/ />
-              </div>
-            </div>
-          </main>
-          <footer>
-            Disfruta de la App!!
-          </footer>
-        </div>
+        <BrowserRouter>
+          <div className="grid-container">
+            <header>
+              <Link to="/">Prosciutto</Link>
+              <Link to="/admin">Pedidos</Link>
+            </header>
+            <main>
+              <Route path="/admin" component={AdminScreen} />
+              <Route path="/" component={HomeScreen} exact />
+              
+            </main>
+            <footer>
+              Disfruta de la App!!
+            </footer>
+          </div>
+        </BrowserRouter>
       </Provider>
     );
   }
