@@ -6,8 +6,10 @@ import Cart from "./components/Cart";
 import store from "./store";
 import { Provider } from "react-redux";
 
+
+//Evadimos la lógica de App.js, simplificando el código de la clase, haciéndola sencilla y breve. 
 class App extends React.Component {
-  constructor(){
+  /*constructor(){
     super();
     this.state = {
       //products: data.products,
@@ -15,22 +17,22 @@ class App extends React.Component {
       //size:"",
       //sort:"",
     };
-  }
+  }*/
 
-  createOrder = (order) => {
+  /*createOrder = (order) => {
     alert("Necesitas guardar el pedido para " + order.name);
-  }
+  }*/
     
 
-  removeFromCart = (product) => {
+  /*removeFromCart = (product) => {
     const cartItems = this.state.cartItems.slice();
     this.setState({
       cartItems: cartItems.filter((x) => x._id !== product._id),
     });
     localStorage.setItem("cartItems", JSON.stringify(cartItems.filter((x) => x._id !== product._id)));
-  };
+  };*/
 
-  addToCart = (product) => {
+  /*addToCart = (product) => {
     const cartItems = this.state.cartItems.slice();
     let alreadyInCart = false;
     cartItems.forEach((item) => {
@@ -48,7 +50,7 @@ class App extends React.Component {
 
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
-  };
+  }; */
 
   //Función ORDENAR (desde React, previa a la incorporación del Backend)
   /*sortProducts = (event) => {
@@ -98,12 +100,11 @@ class App extends React.Component {
                   //filterProducts={this.filterProducts}
                   //sortProducts={this.sortProducts}
                 ></Filter>
-                <Products //products={this.state.products} 
-                  addToCart={this.addToCart}>
+                <Products /* products={this.state.products} addToCart={this.addToCart}*/ >
                 </Products>
               </div>
               <div className="sidebar">
-                <Cart cartItems={this.state.cartItems} removeFromCart={this.removeFromCart} createOrder={this.createOrder} />
+                <Cart /*cartItems={this.state.cartItems} removeFromCart={this.removeFromCart} createOrder={this.createOrder}*/ />
               </div>
             </div>
           </main>
