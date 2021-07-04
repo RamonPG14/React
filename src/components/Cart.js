@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import formatCurrency from "../util";
 import Fade from "react-reveal/Fade";
+import { connect } from 'react-redux';
+import { removeFromCart } from "../actions/cartActions";
 
-export default class Cart extends Component {
+class Cart extends Component {
     constructor(props){
         super(props);
         this.state = { name:"", email:"", address: "", showCheckout: false };
@@ -17,7 +19,7 @@ export default class Cart extends Component {
             email: this.state.email,
             address: this.state.address,
             cartItems: this.props.cartItems
-        }
+        };
         this.props.createOrder(order);
     }
     render() {
@@ -106,3 +108,11 @@ export default class Cart extends Component {
         );
     }
 }
+
+export default connect(
+    (state) => ({
+        //order: state.order.order,
+        cartItems: state.cart.cartItems,
+    }),
+    { removeFromCart } //, createOrder, clearOrder }
+)(Cart);
