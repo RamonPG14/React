@@ -5,6 +5,10 @@ html{
   box-sizing: border-box;
 }
 
+body{
+  background-color: #eae8f1;
+}
+
 body, 
 #root{
   height: 100vh;
@@ -30,7 +34,7 @@ a{
 }
 
 a:hover{
-  color:#ff8000
+  color:#ff8000;
 }
 
 header{
@@ -46,11 +50,16 @@ header a{
   color:#ffffff;
   text-decoration: none;
 }
+header img{
+  max-width: 2rem;
+  max-height: 2rem;
+}
 main{
   grid-area: main;
 }
 
 footer{
+  margin-top: 10px;
   grid-area: footer;
   background-color: #203040;
   color:#ffffff;
@@ -99,6 +108,13 @@ footer{
 .product img{
   max-width: 37rem;
   max-height: 37rem;
+  padding-left: 130px;
+}
+
+ 
+.product-tittle {
+  
+  text-align: center;
 }
 
 .product-price{
@@ -226,6 +242,7 @@ input{
   flex-wrap: wrap;
   justify-content: space-between;
    max-height: 96vh;
+   
 }
 
 .product-details img{
@@ -254,18 +271,22 @@ input{
   align-items: center;
   height: 100%;
 }
+
 .order-details li {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .order-details li div {
   padding: 10px;
 }
+
 .order-details .items {
   text-align: right;
   padding: 0;
 }
+
 .success-message {
   color: green;
 }
@@ -275,12 +296,15 @@ input{
   width: 100%;
   padding: 10px;
 }
+
 tbody > tr:nth-child(odd) {
   background-color: #f0f0f0;
 }
+
 td {
-  padding: 5px;
+  padding: 20px;
 }
+
 th {
   text-align: left;
 }

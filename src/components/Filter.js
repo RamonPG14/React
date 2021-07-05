@@ -20,9 +20,9 @@ class Filter extends Component {
                     Masa{" "}
                     <select value={this.props.size} onChange={(e) => this.props.filterProducts(this.props.products, e.target.value)}>
                         <option value="">TODAS</option>
-                        <option value="P">Finissima</option>
-                        <option value="M">Original</option>
-                        <option value="F">Gruesa</option>
+                        <option value="F">Finissima</option>
+                        <option value="M">Mollete</option>
+                        <option value="P">Prosciutto</option>
                     </select>
                 </div>
             </div>

@@ -89,8 +89,8 @@ class App extends React.Component {
         <BrowserRouter>
           <div className="grid-container">
             <header>
-              <Link to="/">Prosciutto</Link>
-              <Link to="/admin">Pedidos</Link>
+              <Link to="/">&nbsp;Prosciutto</Link>
+              <Link to="/admin">Pedidos&nbsp;</Link>
             </header>
             <main>
               <Route path="/admin" component={AdminScreen} />

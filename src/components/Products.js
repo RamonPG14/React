@@ -39,7 +39,7 @@ class Products extends Component {
                                 <div className="product">
                                     <a href={"#" + product._id} onClick={()=> this.openModal(product)}>
                                         <img src={product.image} alt={product.tittle}></img>
-                                        <p>
+                                        <p className="product-tittle">
                                             {product.tittle}
                                         </p>
                                     </a>
@@ -72,7 +72,7 @@ class Products extends Component {
                                         {product.description}
                                     </p>
                                     <p>
-                                        Tamaños disponibles: {" "}
+                                        Masas disponibles: {" "}
                                         {product.availableSizes.map((x)=>(
                                             <span> {" "} <button className="button">{x}</button> </span>
                                         ))}
