@@ -6,7 +6,12 @@ const shortid = require("shortid");
 const app = express();
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://localhost/react-ecommerce", {
+app.use("/", express.static(__dirname + "/build"));
+app.get("/", (req, res)=> res.sendFile(__dirname+ "/build/index.html"));
+
+mongoose.connect(
+    process.env.MONGODB_URL ||                              //Empleamos la mongodb_url para la app
+    "mongodb://localhost/react-ecommerce", {                //Si no funciona, ejeccutamos la local
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
